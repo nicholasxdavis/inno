@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Innovation Corner - Explore Blogs</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+  /* Custom styles for glassmorphism and image hover effects */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      overflow: hidden; /* Ensure images don't overflow */
+    }
+    .glass-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    }
+    .gradient-overlay {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2));
+    }
+    /* Image hover effect */
+    .article-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px 12px 0 0;
+      transition: transform 0.3s ease;
+    }
+    .glass-card:hover .article-image {
+      transform: scale(1.05);
+    }
+    /* Highlight text */
+    .highlight {
+      color: #a78bfa; /* Purple-400 */
+      font-weight: 600;
+    }
+    /* Cookie Popup */
+    #cookie-popup {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 16px;
+      width: 300px; /* Fixed width */
+      z-index: 1000; /* Ensure it's on top */
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white font-['Inter']">
+  <!-- Cookie Consent Popup -->
+  <div id="cookie-popup" class="glass-card">
+    <p class="text-gray-300">This website uses cookies to ensure you get the best experience.</p>
+    <button id="accept-cookies" class="bg-purple-600 text-white px-4 py-2 rounded-lg mt-4 hover:bg-purple-700 transition-colors">Accept</button>
+  </div>
+
+<style> 
+    /* Full-page mobile menu */
+    #mobile-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(17, 24, 39, 0.95); /* Semi-transparent dark background */
+      backdrop-filter: blur(10px);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    #mobile-menu.active {
+      display: flex;
+    }
+    #mobile-menu a {
+      display: block;
+      text-align: center;
+      font-size: 1.5rem;
+      color: #a78bfa; /* Purple-400 */
+      margin: 1.5rem 0;
+      transition: color 0.3s ease;
+    }
+    #mobile-menu a:hover {
+      color: #8b5cf6; /* Purple-500 */
+    }
+    /* Close button styles */
+    #close-mobile-menu {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      color: #a78bfa; /* Purple-400 */
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    #close-mobile-menu:hover {
+      color
+</style>
+
+
+  <!-- Navbar -->
+  <nav class="p-6 bg-gray-800 bg-opacity-50 backdrop-filter backdrop-blur-lg sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold font-['Space_Grotesk']">Innovation Corner</a>
+      <!-- Hamburger Menu for Mobile -->
+      <button id="mobile-menu-button" class="md:hidden text-purple-400 focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+      <!-- Desktop Menu -->
+      <div id="navbar-menu" class="hidden md:flex space-x-6">
+        <a href="home.html" class="hover:text-purple-400 transition-colors">Home</a>
+        <a href="blogs.html" class="text-purple-400 hover:text-purple-400 transition-colors">Blogs</a>
+        <a href="home.html#about" class="hover:text-purple-400 transition-colors">About</a>
+        <a href="contact.html" class="hover:text-purple-400 transition-colors">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Full-Page Mobile Menu -->
+  <div id="mobile-menu">
+    <!-- Close Button (X Icon) -->
+    <div id="close-mobile-menu">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </div>
+    <!-- Navigation Links -->
+    <div>
+      <a href="home.html" class="text-purple-400 hover:text-purple-500 transition-colors">Home</a>
+      <a href="blogs.html" class="text-purple-400 hover:text-purple-500 transition-colors">Blogs</a>
+      <a href="home.html#about" class="text-purple-400 hover:text-purple-500 transition-colors">About</a>
+      <a href="contact.html" class="text-purple-400 hover:text-purple-500 transition-colors">Contact</a>
+    </div>
+  </div>
+
+  
+<script> 
+    // Mobile Menu Toggle
+    const mobileMenuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const closeMobileMenuButton = document.getElementById("close-mobile-menu");
+
+    mobileMenuButton.addEventListener("click", () => {
+      mobileMenu.classList.add("active");
+    });
+
+    closeMobileMenuButton.addEventListener("click", () => {
+      mobileMenu.classList.remove("active");
+    });
+
+    // Close mobile menu when a link is clicked
+    mobileMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.remove("active");
+      });
+    });
+
+</script>
+
+  <!-- Main Content -->
+  <main>
+
+  <!-- Blog Cards Section -->
+    <section id="blog" class="container mx-auto py-12 md:py-16 px-4">
+      <h2 class="text-2xl md:text-3xl font-bold font-['Space_Grotesk'] text-center mb-4">Blogs</h2>
+      <p class="text-lg text-gray-300 text-center mb-8">Discover the latest trends and insights in technology and innovation.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="glass-card">
+          <img src="img/c.jpg" alt="AI Technology" class="article-image">
+          <div class="p-6">
+            <h2 class="text-xl md:text-2xl font-bold mb-2">The Future of AI</h2>
+            <p class="text-gray-300 mb-4">Discover how AI is shaping the future of technology and society.</p>
+            <a href="future-of-ai.html" class="text-purple-400 hover:text-purple-300 transition-colors">Read More →</a>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="glass-card">
+          <img src="img/c2.jpg" alt="Web Development" class="article-image">
+          <div class="p-6">
+            <h2 class="text-xl md:text-2xl font-bold mb-2">Web Development Trends</h2>
+            <p class="text-gray-300 mb-4">Explore the latest trends in web development for 2023.</p>
+            <a href="future-of-ai.html" class="text-purple-400 hover:text-purple-300 transition-colors">Read More →</a>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="glass-card">
+          <img src="img/c3.jpg" alt="Designing for the Future" class="article-image">
+          <div class="p-6">
+            <h2 class="text-xl md:text-2xl font-bold mb-2">Designing for the Future</h2>
+            <p class="text-gray-300 mb-4">Learn how to create designs that stand the test of time.</p>
+            <a href="future-of-ai.html" class="text-purple-400 hover:text-purple-300 transition-colors">Read More →</a>
+          </div>
+        </div>
+        <div class="glass-card">
+          <img src="img/c.jpg" alt="AI Technology" class="article-image">
+          <div class="p-6">
+            <h2 class="text-xl md:text-2xl font-bold mb-2">The Future of AI</h2>
+            <p class="text-gray-300 mb-4">Discover how AI is shaping the future of technology and society.</p>
+            <a href="future-of-ai.html" class="text-purple-400 hover:text-purple-300 transition-colors">Read More →</a>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="glass-card">
+          <img src="img/c2.jpg" alt="Web Development" class="article-image">
+          <div class="p-6">
+            <h2 class="text-xl md:text-2xl font-bold mb-2">Web Development Trends</h2>
+            <p class="text-gray-300 mb-4">Explore the latest trends in web development for 2023.</p>
+            <a href="future-of-ai.html" class="text-purple-400 hover:text-purple-300 transition-colors">Read More →</a>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="glass-card">
+          <img src="img/c3.jpg" alt="Designing for the Future" class="article-image">
+          <div class="p-6">
+            <h2 class="text-xl md:text-2xl font-bold mb-2">Designing for the Future</h2>
+            <p class="text-gray-300 mb-4">Learn how to create designs that stand the test of time.</p>
+            <a href="future-of-ai.html" class="text-purple-400 hover:text-purple-300 transition-colors">Read More →</a>
+          </div>
+        </div>
+        <div class="glass-card">
+          <img src="img/c.jpg" alt="AI Technology" class="article-image">
+          <div class="p-6">
+            <h2 class="text-xl md:text-2xl font-bold mb-2">The Future of AI</h2>
+            <p class="text-gray-300 mb-4">Discover how AI is shaping the future of technology and society.</p>
+            <a href="future-of-ai.html" class="text-purple-400 hover:text-purple-300 transition-colors">Read More →</a>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="glass-card">
+          <img src="img/c2.jpg" alt="Web Development" class="article-image">
+          <div class="p-6">
+            <h2 class="text-xl md:text-2xl font-bold mb-2">Web Development Trends</h2>
+            <p class="text-gray-300 mb-4">Explore the latest trends in web development for 2023.</p>
+            <a href="future-of-ai.html" class="text-purple-400 hover:text-purple-300 transition-colors">Read More →</a>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="glass-card">
+          <img src="img/c3.jpg" alt="Designing for the Future" class="article-image">
+          <div class="p-6">
+            <h2 class="text-xl md:text-2xl font-bold mb-2">Designing for the Future</h2>
+            <p class="text-gray-300 mb-4">Learn how to create designs that stand the test of time.</p>
+            <a href="future-of-ai.html" class="text-purple-400 hover:text-purple-300 transition-colors">Read More →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 bg-opacity-50 backdrop-filter backdrop-blur-lg py-8 mt-auto">
+    <div class="container mx-auto text-center">
+      <p class="text-gray-300">© 2025 <span class="highlight">Innovation Corner</span>. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript for Cookie Popup, FAQ Toggle, and Unsplash API -->
+  <script>
+    // Cookie Popup
+    document.addEventListener("DOMContentLoaded", () => {
+      const cookiePopup = document.getElementById("cookie-popup");
+      const acceptCookiesButton = document.getElementById("accept-cookies");
+
+      // Check if the user has already accepted cookies
+      if (!localStorage.getItem("cookiesAccepted")) {
+        cookiePopup.style.display = "block";
+      }
+
+      // Handle cookie acceptance
+      acceptCookiesButton.addEventListener("click", () => {
+        localStorage.setItem("cookiesAccepted", "true");
+        cookiePopup.style.display = "none";
+      });
+    });
+
+  </script>
+</body>
+</html>

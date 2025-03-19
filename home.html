@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Innovation Corner - Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Custom styles for glassmorphism and image hover effects */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      overflow: hidden; /* Ensure images don't overflow */
+    }
+    .glass-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    }
+    /* Image hover effect */
+    .article-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px 12px 0 0;
+      transition: transform 0.3s ease;
+    }
+    .glass-card:hover .article-image {
+      transform: scale(1.05);
+    }
+    /* Highlight text */
+    .highlight {
+      color: #a78bfa; /* Purple-400 */
+      font-weight: 600;
+    }
+    /* Cookie Popup */
+    #cookie-popup {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 16px;
+      width: 300px; /* Fixed width */
+      z-index: 1000; /* Ensure it's on top */
+    }
+    /* Full-page mobile menu */
+    #mobile-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(17, 24, 39, 0.95); /* Semi-transparent dark background */
+      backdrop-filter: blur(10px);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    #mobile-menu.active {
+      display: flex;
+    }
+    #mobile-menu a {
+      display: block;
+      text-align: center;
+      font-size: 1.5rem;
+      color: #a78bfa; /* Purple-400 */
+      margin: 1.5rem 0;
+      transition: color 0.3s ease;
+    }
+    #mobile-menu a:hover {
+      color: #8b5cf6; /* Purple-500 */
+    }
+    /* Close button styles */
+    #close-mobile-menu {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      color: #a78bfa; /* Purple-400 */
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    #close-mobile-menu:hover {
+      color: #8b5cf6; /* Purple-500 */
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white font-['Inter']">
+  <!-- Cookie Consent Popup -->
+  <div id="cookie-popup" class="glass-card">
+    <p class="text-gray-300">This website uses cookies to ensure you get the best experience.</p>
+    <button id="accept-cookies" class="bg-purple-600 text-white px-4 py-2 rounded-lg mt-4 hover:bg-purple-700 transition-colors">Accept</button>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="p-6 bg-gray-800 bg-opacity-50 backdrop-filter backdrop-blur-lg sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold font-['Space_Grotesk']">Innovation Corner</a>
+      <!-- Hamburger Menu for Mobile -->
+      <button id="mobile-menu-button" class="md:hidden text-purple-400 focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+      <!-- Desktop Menu -->
+      <div id="navbar-menu" class="hidden md:flex space-x-6">
+        <a href="home.html" class="text-purple-400 hover:text-purple-400 transition-colors">Home</a>
+        <a href="blogs.html" class="hover:text-purple-400 transition-colors">Blogs</a>
+        <a href="contact.html" class="hover:text-purple-400 transition-colors">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Full-Page Mobile Menu -->
+  <div id="mobile-menu">
+    <!-- Close Button (X Icon) -->
+    <div id="close-mobile-menu">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </div>
+    <!-- Navigation Links -->
+    <div>
+      <a href="home.html" class="text-purple-400 hover:text-purple-500 transition-colors">Home</a>
+      <a href="blogs.html" class="text-purple-400 hover:text-purple-500 transition-colors">Blogs</a>
+      <a href="contact.html" class="text-purple-400 hover:text-purple-500 transition-colors">Contact</a>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main>
+<!-- Hero Section -->
+<section id="home" class="animated-gradient py-12 md:py-20">
+  <div class="container mx-auto text-center px-4">
+    <h1 class="text-3xl md:text-5xl font-bold font-['Space_Grotesk'] mb-4">Welcome to Innovation Corner</h1>
+    <p class="text-lg md:text-xl text-gray-300 mb-8">Exploring the future of innovation, technology, and creativity.</p>
+    <a href="blogs.html" class="glassmorphism-button text-white px-6 py-3 rounded-lg transition-all">Explore</a>
+  </div>
+</section>
+
+<style>
+  .animated-gradient {
+    background: linear-gradient(-45deg, #6366f1, #7c3aed, #8b5cf6, #a78bfa);
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
+  }
+
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .glassmorphism-button {
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Semi-transparent white border */
+    backdrop-filter: blur(10px); /* Blur effect for glassmorphism */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: all 0.3s ease;
+  }
+
+  .glassmorphism-button:hover {
+    background: rgba(255, 255, 255, 0.2); /* Slightly more opaque on hover */
+    border-color: rgba(255, 255, 255, 0.5); /* Brighter border on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+  }
+</style>
+
+   <!-- Blog Cards Section -->
+<section id="blog" class="container mx-auto py-12 md:py-16 px-4">
+  <h2 class="text-2xl md:text-3xl font-bold font-['Space_Grotesk'] text-center mb-4">Featured Articles</h2>
+  <p class="text-lg text-gray-300 text-center mb-8">Discover the latest trends and insights in technology and innovation.</p>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Card 1 -->
+    <div class="glass-card">
+      <img src="img/c.jpg" alt="AI Technology" class="article-image">
+      <div class="p-6">
+        <h2 class="text-xl md:text-2xl font-bold mb-2">The Future of AI</h2>
+        <p class="text-gray-300 mb-4">Discover how AI is shaping the future of technology and society.</p>
+        <a href="future-of-ai.html" class="text-purple-400 hover:text-purple-300 transition-colors">Read More →</a>
+      </div>
+    </div>
+    <!-- Card 2 -->
+    <div class="glass-card">
+      <img src="img/c2.jpg" alt="Web Development" class="article-image">
+      <div class="p-6">
+        <h2 class="text-xl md:text-2xl font-bold mb-2">Web Development Trends</h2>
+        <p class="text-gray-300 mb-4">Explore the latest trends in web development for 2023.</p>
+        <a href="web-development-trends.html" class="text-purple-400 hover:text-purple-300 transition-colors">Read More →</a>
+      </div>
+    </div>
+    <!-- Card 3 -->
+    <div class="glass-card">
+      <img src="img/c3.jpg" alt="Designing for the Future" class="article-image">
+      <div class="p-6">
+        <h2 class="text-xl md:text-2xl font-bold mb-2">Designing for the Future</h2>
+        <p class="text-gray-300 mb-4">Learn how to create designs that stand the test of time.</p>
+        <a href="designing-for-the-future.html" class="text-purple-400 hover:text-purple-300 transition-colors">Read More →</a>
+      </div>
+    </div>
+  </div>
+  <!-- View More Button -->
+  <div class="text-center mt-8">
+    <a href="blogs.html" class="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors">View More</a>
+  </div>
+</section>
+
+
+    <!-- About and Contact Sections -->
+    <section class="container mx-auto py-12 md:py-16 px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- About Section -->
+        <div id="about">
+          <h2 class="text-2xl md:text-3xl font-bold font-['Space_Grotesk'] text-center md:text-left mb-4">Our Story</h2>
+          <p class="text-lg text-gray-300 text-center md:text-left mb-8">Learn more about our mission.</p>
+          <p class="text-base md:text-xl text-gray-300">
+           At Innovation Corner, we are passionate about being your go-to destination for cutting-edge insights on technology, design, and innovation. Our mission is to explore emerging trends, share practical insights, and provide expert opinions that empower you to stay ahead in a rapidly evolving world.<br><br>
+
+In an age where technology and design are in constant flux, we understand the importance of staying informed. Our vision is to create a space where individuals and businesses can come together to explore the latest advancements that are reshaping industries and changing the way we live and work. We aim to be your trusted source for valuable knowledge that helps you navigate the complexities of today's landscape.<br><br>
+
+At Innovation Corner, we dive deep into the technologies and design philosophies that are shaping our future. From artificial intelligence and machine learning to blockchain and virtual reality, we analyze their implications across various sectors. Our articles explore real-world applications and case studies that provide you with a clear understanding of how to leverage these innovations for your benefit.<br><br>
+
+We believe that knowledge should lead to action. That’s why we share practical insights that you can apply in your own projects or businesses. Whether you’re looking to adopt design thinking methodologies, implement agile development practices, or create effective digital marketing strategies, our guides and resources offer actionable steps that make it easy to foster a culture of innovation.<br><br>
+
+
+Thank you for visiting Innovation Corner. We look forward to embarking on this journey of discovery and growth together!
+          </p>
+        </div>
+        <!-- Contact Section -->
+        <div id="contact">
+          <h2 class="text-2xl md:text-3xl font-bold font-['Space_Grotesk'] text-center md:text-left mb-4">Get in Touch</h2>
+          <p class="text-lg text-gray-300 text-center md:text-left mb-8">Get in touch with us for inquiries, collaborations, or feedback.</p>
+          <form class="glass-card p-6">
+            <div class="mb-6">
+              <label for="name" class="block text-gray-300 mb-2">Name</label>
+              <input type="text" id="name" class="w-full p-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="Your Name">
+            </div>
+            <div class="mb-6">
+              <label for="email" class="block text-gray-300 mb-2">Email</label>
+              <input type="email" id="email" class="w-full p-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="Your Email">
+            </div>
+            <div class="mb-6">
+              <label for="message" class="block text-gray-300 mb-2">Message</label>
+              <textarea 
+    id="message" 
+    class="w-full p-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600" 
+    rows="5" 
+    placeholder="Your Message" 
+    style="min-height: 100px; height: 270px;">
+</textarea>
+
+            </div>
+            <div class="text-center">
+              <button type="submit" class="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors">Send Message</button>
+            </div>
+          </form>
+          <div class="mt-6 text-center text-gray-300">
+            <p>Our office hours are 7am to 7pm Pacific Time, Mon-Sun.</p>
+            <p>You can also reach us directly at <a href="mailto:innovation@blacnova.net" class="text-purple-400 hover:text-purple-300 hover:underline">innovation@blacnova.net</a>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- FAQ Section -->
+<section class="container mx-auto py-12 md:py-16 px-4">
+<h2 class="text-2xl md:text-3xl font-bold font-['Space_Grotesk'] text-center mb-4">
+    Frequently Asked Questions <i class="fas fa-question-circle" style="font-size: 0.7em; position: relative; top: -1px;"></i>
+</h2>
+
+
+  <p class="text-lg text-gray-300 text-center mb-8">
+    Find answers to common questions about Innovation Corner.
+  </p>
+  <div class="max-w-2xl mx-auto space-y-4">
+    <!-- FAQ Items -->
+    <div class="glass-card p-4 md:p-6 cursor-pointer" onclick="toggleFAQ(1)">
+      <h3 class="text-lg md:text-xl font-bold mb-2 text-center flex justify-between">
+        <span>What is Innovation Corner?</span>
+        <i id="arrow-1" class="fas fa-chevron-down"></i>
+      </h3>
+      <p id="faq-1" class="text-gray-300 hidden">
+        Innovation Corner is a blog dedicated to exploring the latest trends in technology, design, and innovation.
+      </p>
+    </div>
+    
+    <div class="glass-card p-4 md:p-6 cursor-pointer" onclick="toggleFAQ(2)">
+      <h3 class="text-lg md:text-xl font-bold mb-2 text-center flex justify-between">
+        <span>How can I contribute?</span>
+        <i id="arrow-2" class="fas fa-chevron-down"></i>
+      </h3>
+      <p id="faq-2" class="text-gray-300 hidden">
+        We welcome contributions from experts and enthusiasts. Please reach out to us via the contact form, and we’ll get back to you with details.
+      </p>
+    </div>
+
+    <div class="glass-card p-4 md:p-6 cursor-pointer" onclick="toggleFAQ(3)">
+      <h3 class="text-lg md:text-xl font-bold mb-2 text-center flex justify-between">
+        <span>What topics do you cover?</span>
+        <i id="arrow-3" class="fas fa-chevron-down"></i>
+      </h3>
+      <p id="faq-3" class="text-gray-300 hidden">
+        We cover a wide range of topics, including emerging technologies, design trends, innovative startups, and case studies of successful innovations.
+      </p>
+    </div>
+
+    <div class="glass-card p-4 md:p-6 cursor-pointer" onclick="toggleFAQ(4)">
+      <h3 class="text-lg md:text-xl font-bold mb-2 text-center flex justify-between">
+        <span>Can I suggest a topic for the blog?</span>
+        <i id="arrow-4" class="fas fa-chevron-down"></i>
+      </h3>
+      <p id="faq-4" class="text-gray-300 hidden">
+        Absolutely! We encourage our readers to suggest topics that interest them. Use our contact form to share your ideas.
+      </p>
+    </div>
+
+    <div class="glass-card p-4 md:p-6 cursor-pointer" onclick="toggleFAQ(5)">
+      <h3 class="text-lg md:text-xl font-bold mb-2 text-center flex justify-between">
+        <span>How often do you publish new content?</span>
+        <i id="arrow-5" class="fas fa-chevron-down"></i>
+      </h3>
+      <p id="faq-5" class="text-gray-300 hidden">
+        We strive to publish new content weekly to keep our readers informed about the latest innovations and trends.
+      </p>
+    </div>
+
+    <div class="glass-card p-4 md:p-6 cursor-pointer" onclick="toggleFAQ(6)">
+      <h3 class="text-lg md:text-xl font-bold mb-2 text-center flex justify-between">
+        <span>How can I stay updated with your latest posts?</span>
+        <i id="arrow-6" class="fas fa-chevron-down"></i>
+      </h3>
+      <p id="faq-6" class="text-gray-300 hidden">
+        You can subscribe to our newsletter or follow us on social media platforms to receive updates on our latest posts and innovations.
+      </p>
+    </div>
+  </div>
+</section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
+
+<script>
+  function toggleFAQ(id) {
+    const faqContent = document.getElementById(`faq-${id}`);
+    const arrow = document.getElementById(`arrow-${id}`);
+    
+    faqContent.classList.toggle("hidden");
+    arrow.classList.toggle("fa-chevron-down");
+    arrow.classList.toggle("fa-chevron-up");
+  }
+</script>
+
+
+
+<!-- Privacy and Terms Section -->
+<section class="container mx-auto py-12 md:py-16 px-4">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <!-- Privacy Policy -->
+    <div class="glass-card p-6 bg-opacity-20 backdrop-blur-lg rounded-lg shadow-lg border border-opacity-10 border-white">
+      <h2 class="text-2xl md:text-3xl font-bold font-['Space_Grotesk'] text-center mb-4 text-white">Privacy Policy</h2>
+      <p class="text-lg text-gray-300 text-center mb-8">Understand how we handle your data and protect your privacy.</p>
+      <div class="space-y-6">
+        <div>
+          <h3 class="text-lg md:text-xl font-bold text-white mt-4">Information We Collect</h3>
+          <p class="text-base md:text-lg text-gray-300">
+            We do not collect personal information such as your name or email address. The only information we store is related to your style preferences to enhance your user experience. This may include your selected themes, colors, and layout preferences.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-lg md:text-xl font-bold text-white mt-4">How We Use Your Information</h3>
+          <p class="text-base md:text-lg text-gray-300">
+            We use the stored style preferences solely to customize your experience on our website and improve its functionality and aesthetics. This helps us provide you with a tailored and enjoyable user experience.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-lg md:text-xl font-bold text-white mt-4">Data Security</h3>
+          <p class="text-base md:text-lg text-gray-300">
+            We implement reasonable security measures to protect the stored style preferences from unauthorized access, use, or disclosure. While we strive to protect your information, no method of transmission or electronic storage is 100% secure.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-lg md:text-xl font-bold text-white mt-4">Changes to This Policy</h3>
+          <p class="text-base md:text-lg text-gray-300">
+            We may update this Privacy Policy periodically. Any changes will be posted on this page, and the effective date will be revised. We encourage you to review this policy regularly to stay informed about our practices.
+          </p>
+        </div>
+        <p class="text-base md:text-lg text-gray-300 text-center">
+          For more information, please read our <a href="#" class="text-purple-400 hover:text-purple-300 underline">Privacy Policy</a>.
+        </p>
+      </div>
+    </div>
+
+    <!-- Terms of Service -->
+    <div class="glass-card p-6 bg-opacity-20 backdrop-blur-lg rounded-lg shadow-lg border border-opacity-10 border-white">
+      <h2 class="text-2xl md:text-3xl font-bold font-['Space_Grotesk'] text-center mb-4 text-white">Terms of Service</h2>
+      <p class="text-lg text-gray-300 text-center mb-8">Learn about the rules and guidelines for using our website.</p>
+      <div class="space-y-6">
+        <div>
+          <h3 class="text-lg md:text-xl font-bold text-white mt-4">Use of the Website</h3>
+          <p class="text-base md:text-lg text-gray-300">
+            You agree to use our website only for lawful purposes and in a manner that does not infringe on the rights of, restrict, or inhibit anyone else's use of the site. You are prohibited from engaging in any unlawful activities, transmitting harmful software, or attempting unauthorized access to our systems.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-lg md:text-xl font-bold text-white mt-4">Intellectual Property</h3>
+          <p class="text-base md:text-lg text-gray-300">
+            All content on this website, including text, graphics, logos, and images, is the property of Innovation Corner or its content suppliers and is protected by applicable copyright and intellectual property laws. You may not reproduce or distribute any content without our express written permission.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-lg md:text-xl font-bold text-white mt-4">Disclaimer of Warranties</h3>
+          <p class="text-base md:text-lg text-gray-300">
+            Our website is provided on an "as is" and "as available" basis. We do not warrant that the site will be uninterrupted or error-free, nor do we make any warranties regarding the accuracy or reliability of the content. Your use of the site is at your own risk.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-lg md:text-xl font-bold text-white mt-4">Changes to These Terms</h3>
+          <p class="text-base md:text-lg text-gray-300">
+            We reserve the right to modify these Terms of Service at any time. Any changes will be posted on this page with an updated effective date. Your continued use of the website after changes signifies your acceptance of the new terms.
+          </p>
+        </div>
+        <p class="text-base md:text-lg text-gray-300 text-center">
+          For more detailed information, please read our <a href="#" class="text-purple-400 hover:text-purple-300 underline">Terms of Service</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 bg-opacity-50 backdrop-filter backdrop-blur-lg py-6 mt-auto">
+    <div class="container mx-auto text-center px-4">
+      <p class="text-gray-300">© 2025 <span class="highlight">Innovation Corner</span>. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript for Mobile Menu, Cookie Popup, and FAQ Toggle -->
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const closeMobileMenuButton = document.getElementById("close-mobile-menu");
+
+    mobileMenuButton.addEventListener("click", () => {
+      mobileMenu.classList.add("active");
+    });
+
+    closeMobileMenuButton.addEventListener("click", () => {
+      mobileMenu.classList.remove("active");
+    });
+
+    // Close mobile menu when a link is clicked
+    mobileMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.remove("active");
+      });
+    });
+
+    // Cookie Popup
+    document.addEventListener("DOMContentLoaded", () => {
+      const cookiePopup = document.getElementById("cookie-popup");
+      const acceptCookiesButton = document.getElementById("accept-cookies");
+
+      if (!localStorage.getItem("cookiesAccepted")) {
+        cookiePopup.style.display = "block";
+      }
+
+      acceptCookiesButton.addEventListener("click", () => {
+        localStorage.setItem("cookiesAccepted", "true");
+        cookiePopup.style.display = "none";
+      });
+    });
+
+  </script>
+</body>
+</html>
