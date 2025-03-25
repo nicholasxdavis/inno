@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Innovation Corner - The Future of AI</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    /* Custom styles for blog content */
+    .blog-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .blog-content img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+    .blog-content h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    .blog-content p {
+      font-size: 1.125rem;
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+    }
+    .blog-content a {
+      color: #a78bfa; /* Purple-400 */
+      text-decoration: underline;
+    }
+    .blog-content a:hover {
+      color: #7c3aed; /* Purple-600 */
+    }
+    /* Highlight text */
+    .highlight {
+      color: #a78bfa; /* Purple-400 */
+      font-weight: 600;
+    }
+    /* Cookie Popup */
+    #cookie-popup {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 16px;
+      width: 300px; /* Fixed width */
+      z-index: 1000; /* Ensure it's on top */
+    }
+    /* Photo Credit Label */
+    .photo-credit {
+      font-size: 0.875rem;
+      color: #9ca3af; /* Gray-400 */
+      text-align: left; /* Align text to the left */
+      margin-top: 8px;
+    }
+    /* Blog Credit */
+    .blog-credit {
+      font-size: 0.875rem;
+      color: #9ca3af; /* Gray-400 */
+      text-align: right; /* Align text to the right */
+      margin-top: 16px;
+    }
+
+  </style>
+</head>
+<body class="bg-white-900 text-white font-['Inter']">
+  <!-- Cookie Consent Popup -->
+  <div id="cookie-popup" class="glass-card">
+    <p class="text-gray-500">This website uses cookies to ensure you get the best experience.</p>
+    <button id="accept-cookies" class="bg-purple-600 text-white px-4 py-2 rounded-lg mt-4 hover:bg-purple-700 transition-colors">Accept</button>
+  </div>
+  <style> 
+    /* Full-page mobile menu */
+    #mobile-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(17, 24, 39, 0.95); /* Semi-transparent dark background */
+      backdrop-filter: blur(10px);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    #mobile-menu.active {
+      display: flex;
+    }
+    #mobile-menu a {
+      display: block;
+      text-align: center;
+      font-size: 1.5rem;
+      color: #a78bfa; /* Purple-400 */
+      margin: 1.5rem 0;
+      transition: color 0.3s ease;
+    }
+    #mobile-menu a:hover {
+      color: #8b5cf6; /* Purple-500 */
+    }
+    /* Close button styles */
+    #close-mobile-menu {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      color: #a78bfa; /* Purple-400 */
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    #close-mobile-menu:hover {
+      color
+</style>
+
+
+  <!-- Navbar -->
+  <nav class="p-6 bg-gray-300 text-purple-500 bg-opacity-50 backdrop-filter backdrop-blur-lg sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold font-['Space_Grotesk']">Innovation Corner</a>
+      <!-- Hamburger Menu for Mobile -->
+      <button id="mobile-menu-button" class="md:hidden text-purple-400 focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+      <!-- Desktop Menu -->
+      <div id="navbar-menu" class="hidden md:flex space-x-6">
+<a href="../home.html" class="hover:text-purple-400 transition-colors">Home</a>
+        <a href="../blogs.html" class="hover:text-purple-400 transition-colors">Blogs</a>
+        <a href="../about.html" class="hover:text-purple-400 transition-colors">About</a>
+        <a href="../contact.html" class="hover:text-purple-400 transition-colors">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Full-Page Mobile Menu -->
+  <div id="mobile-menu">
+    <!-- Close Button (X Icon) -->
+    <div id="close-mobile-menu">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </div>
+    <!-- Navigation Links -->
+    <div>
+      <a href="../home.html" class="text-purple-400 hover:text-purple-500 transition-colors">Home</a>
+      <a href="../blogs.html" class="text-purple-400 hover:text-purple-500 transition-colors">Blogs</a>
+      <a href="../about.html" class="text-purple-400 hover:text-purple-500 transition-colors">About</a>
+      <a href="../contact.html" class="text-purple-400 hover:text-purple-500 transition-colors">Contact</a>
+    </div>
+  </div>
+
+  
+<script> 
+    // Mobile Menu Toggle
+    const mobileMenuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const closeMobileMenuButton = document.getElementById("close-mobile-menu");
+
+    mobileMenuButton.addEventListener("click", () => {
+      mobileMenu.classList.add("active");
+    });
+
+    closeMobileMenuButton.addEventListener("click", () => {
+      mobileMenu.classList.remove("active");
+    });
+
+    // Close mobile menu when a link is clicked
+    mobileMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.remove("active");
+      });
+    });
+
+  
+</script>
+
+  <!-- Main Content -->
+  <main>
+<!-- Blog Post Section -->
+<section class="py-16">
+  <div class="blog-content">
+    <div class="flex flex-col md:flex-row gap-8">
+      <!-- Image on the Left -->
+      <div class="flex-1">
+        <img src="img/c.jpg" alt="AI Technology">
+        <div class="photo-credit">Photo by <a href="https://unsplash.com" class="text-purple-400 hover:text-purple-300">Unsplash</a></div>
+      </div>
+
+      <!-- Text on the Right -->
+      <div class="flex-1">
+    <h2 class="text-purple-300">The Future of AI: How Artificial Intelligence is Transforming the World</h2>
+    <p class="text-gray-700">
+        Artificial Intelligence (AI) is no longer a futuristic concept; it’s here, and it’s transforming the world as we know it. From healthcare to finance, AI is revolutionizing industries and reshaping the way we live, work, and interact. In this blog post, we’ll explore the latest advancements in AI and how they’re impacting our daily lives.
+    </p>
+        <p class="text-gray-700">
+          One of the most exciting developments in AI is its application in healthcare. AI-powered tools are now being used to diagnose diseases, predict patient outcomes, and even assist in surgeries. For example, machine learning algorithms can analyze medical images with incredible accuracy, helping doctors detect conditions like cancer at an early stage. This not only improves patient outcomes but also reduces healthcare costs.
+        </p>
+        <p class="text-gray-700">
+          In the financial sector, AI is being used to detect fraudulent transactions, predict market trends, and personalize customer experiences. Banks and financial institutions are leveraging AI to analyze vast amounts of data in real-time, enabling them to make smarter decisions and provide better services to their customers.
+        </p>
+        <p class="text-gray-700">
+          But AI isn’t just limited to healthcare and finance. It’s also making waves in education, transportation, and even creative industries. For instance, AI-powered tools are helping educators personalize learning experiences for students, while self-driving cars are becoming a reality thanks to advancements in AI and machine learning.
+        </p>
+        <p class="text-gray-700">
+          However, with great power comes great responsibility. As AI continues to evolve, it’s important to address ethical concerns such as data privacy, bias, and job displacement. Policymakers, businesses, and individuals must work together to ensure that AI is used responsibly and for the benefit of all.
+        </p>
+        <p class="text-gray-700">
+          In conclusion, the future of AI is bright, and its potential is limitless. As we continue to explore the possibilities of this transformative technology, one thing is clear: AI is here to stay, and it’s changing the world in ways we never imagined.
+        </p>
+        <!-- Call to Action -->
+        <p class="text-gray-700">
+          What are your thoughts on the future of AI? Share your opinions in the comments below or <a href="#contact">contact us</a> to learn more about how AI is shaping the future.
+        </p>
+        <!-- Blog Credit -->
+        <div class="blog-credit">
+          Written by <span class="highlight">Blacnova</span>
+        </div>
+
+        <!-- Share Section -->
+        <div class="share-section mt-8">
+          <h3 class="text-lg font-semibold mb-4">Share this post:</h3>
+          <div class="flex space-x-4">
+            <!-- Facebook Share Button -->
+            <a href="#" id="share-facebook" class="text-purple-600 hover:text-purple-500">
+              <i class="fab fa-facebook"></i> Facebook
+            </a>
+            <!-- Twitter Share Button -->
+            <a href="#" id="share-twitter" class="text-purple-400 hover:text-purple-300">
+              <i class="fab fa-twitter"></i> Twitter (X)
+            </a>
+            <!-- LinkedIn Share Button -->
+            <a href="#" id="share-linkedin" class="text-purple-700 hover:text-purple-600">
+              <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <!-- WhatsApp Share Button -->
+            <a href="#" id="share-whatsapp" class="text-purple-500 hover:text-purple-400">
+              <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <!-- Copy URL Button -->
+            <button id="copy-url" class="text-gray-600 hover:text-gray-500">
+              <i class="fas fa-copy"></i> Copy Link
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JavaScript for Dynamic URL Sharing -->
+<script>
+  // Get the current page URL and title
+  const pageUrl = encodeURIComponent(window.location.href);
+  const pageTitle = encodeURIComponent(document.title);
+
+  // Set up share links
+  document.getElementById('share-facebook').href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+  document.getElementById('share-twitter').href = `https://twitter.com/intent/tweet?text=${pageTitle}%20${pageUrl}`;
+  document.getElementById('share-linkedin').href = `https://www.linkedin.com/shareArticle?mini=true&url=${pageUrl}&title=${pageTitle}`;
+  document.getElementById('share-whatsapp').href = `https://wa.me/?text=${pageTitle}%20${pageUrl}`;
+
+  // Copy URL to clipboard
+  document.getElementById('copy-url').addEventListener('click', () => {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      alert('Link copied to clipboard!');
+    }).catch(() => {
+      alert('Failed to copy link. Please manually copy the URL.');
+    });
+  });
+</script>
+
+    <!-- Smaller Newsletter Section -->
+<section class="py-8">
+  <div class="container mx-auto text-center">
+<p class="text-purple-500 text-base text-gray-300
+text-lg">
+<i class="fas fa-envelope mb-2"></i>
+</p>
+    <h2 class="text-gray-700 text-xl font-bold font-['Space_Grotesk'] mb-4"> <!-- Font Awesome icon -->
+      Subscribe to Our Newsletter
+    </h2>
+    <p class="text-gray-500 text-base text-gray-300 mb-4">Stay updated with the latest trends and insights in innovation.</p>
+    <form class="max-w-sm mx-auto">
+      <div class="mb-3">
+        <input type="email" class="w-full p-2 bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 mb-2" placeholder="Your Email">
+      </div>
+      <button type="submit" class="bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+  </main>
+
+<!-- Footer -->
+ <footer class="bg-white-800 bg-opacity-50 backdrop-filter backdrop-blur-lg py-8 mt-auto">
+  <div class="container mx-auto px-6">
+    <div class="flex flex-col items-center">
+      <!-- Logo/Link row -->
+      <div class="flex space-x-6 mb-6">
+        <a href="#" class="text-gray-400 hover:text-purple-500 transition-colors duration-300 text-lg font-light">Privacy Policy</a>
+        <a href="#" class="text-gray-400 hover:text-purple-500 transition-colors duration-300 text-lg font-light">Terms of Use</a>
+      </div>
+     <div class="flex justify-center">
+  <!-- Copyright text with subtle gradient -->
+<p class="text-gray-500 text-lg font-light tracking-wide mb-1.5">
+    © 2025 <span class="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent font-medium">Innovation Corner</span>. All rights reserved.
+</p>
+
+</div>
+      <!-- Additional info -->
+      <p class="text-gray-600 text-lg mt-2 font-light">
+        Designed in New Mexico. Crafted with passion worldwide.
+      </p>
+    </div>
+  </div>
+</footer>
+
+  <!-- JavaScript for Cookie Popup -->
+  <script>
+    // Cookie Popup
+    document.addEventListener("DOMContentLoaded", () => {
+      const cookiePopup = document.getElementById("cookie-popup");
+      const acceptCookiesButton = document.getElementById("accept-cookies");
+
+      // Check if the user has already accepted cookies
+      if (!localStorage.getItem("cookiesAccepted")) {
+        cookiePopup.style.display = "block";
+      }
+
+      // Handle cookie acceptance
+      acceptCookiesButton.addEventListener("click", () => {
+        localStorage.setItem("cookiesAccepted", "true");
+        cookiePopup.style.display = "none";
+      });
+    });
+  </script>
+</body>
+</html>

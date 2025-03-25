@@ -3,18 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Innovation Corner - Contact Us</title>
+  <title>Innovation Corner</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-   <style> 
-h2, p {
-    pointer-events: none; /* Disable pointer events */
-    user-select: none;    /* Prevent text selection */
-    cursor: default;      /* Change cursor to default */
-}
-
-
-     </style>
   <style>
     .glass-card {
       background: rgba(255, 255, 255, 0.1);
@@ -23,7 +14,7 @@ h2, p {
       border: 1px solid rgba(255, 255, 255, 0.2);
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       transition: all 0.3s ease;
-      overflow: hidden; /* Ensure images don't overflow */
+      overflow: hidden;
     }
     .glass-card:hover {
       transform: translateY(-5px);
@@ -32,7 +23,6 @@ h2, p {
     .gradient-overlay {
       background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2));
     }
-    /* Image hover effect */
     .article-image {
       width: 100%;
       height: 200px;
@@ -43,12 +33,10 @@ h2, p {
     .glass-card:hover .article-image {
       transform: scale(1.05);
     }
-    /* Highlight text */
     .highlight {
-      color: #a78bfa; /* Purple-400 */
+      color: #a78bfa;
       font-weight: 600;
     }
-    /* Cookie Popup */
     #cookie-popup {
       position: fixed;
       bottom: 20px;
@@ -59,19 +47,9 @@ h2, p {
       border: 1px solid rgba(255, 255, 255, 0.2);
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       padding: 16px;
-      width: 300px; /* Fixed width */
-      z-index: 1000; /* Ensure it's on top */
+      width: 300px;
+      z-index: 1000;
     }
-  </style>
-</head>
-<body class="bg-gray-900 text-white font-['Inter'] flex flex-col min-h-screen">
-  <!-- Cookie Consent Popup -->
-  <div id="cookie-popup" class="glass-card">
-    <p class="text-gray-300">This website uses cookies to ensure you get the best experience.</p>
-    <button id="accept-cookies" class="bg-purple-600 text-white px-4 py-2 rounded-lg mt-4 hover:bg-purple-700 transition-colors">Accept</button>
-  </div>
-
-  <style> 
     /* Full-page mobile menu */
     #mobile-menu {
       position: fixed;
@@ -79,7 +57,7 @@ h2, p {
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(17, 24, 39, 0.95); /* Semi-transparent dark background */
+      background: rgba(17, 24, 39, 0.95);
       backdrop-filter: blur(10px);
       display: none;
       justify-content: center;
@@ -93,56 +71,73 @@ h2, p {
       display: block;
       text-align: center;
       font-size: 1.5rem;
-      color: #a78bfa; /* Purple-400 */
+      color: #a78bfa;
       margin: 1.5rem 0;
       transition: color 0.3s ease;
     }
     #mobile-menu a:hover {
-      color: #8b5cf6; /* Purple-500 */
+      color: #8b5cf6;
     }
-    /* Close button styles */
     #close-mobile-menu {
       position: absolute;
       top: 1.5rem;
       right: 1.5rem;
-      color: #a78bfa; /* Purple-400 */
+      color: #a78bfa;
       cursor: pointer;
       transition: color 0.3s ease;
     }
     #close-mobile-menu:hover {
-      color: #8b5cf6; /* Purple-500 */
+      color: #8b5cf6;
+    }
+    /* Sticky Footer */
+    html, body {
+      height: 100%;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+    main {
+      flex: 1;
+    }
+    /* Centered Text */
+    .centered-text {
+      text-align: center;
     }
   </style>
+</head>
+<body class="bg-gray-900 text-white font-['Inter']">
+  <!-- Cookie Consent Popup -->
+  <div id="cookie-popup" class="glass-card">
+    <p class="text-gray-300">This website uses cookies to ensure you get the best experience.</p>
+    <button id="accept-cookies" class="bg-purple-600 text-white px-4 py-2 rounded-lg mt-4 hover:bg-purple-700 transition-colors">Accept</button>
+  </div>
 
   <!-- Navbar -->
   <nav class="p-6 bg-gray-800 bg-opacity-50 backdrop-filter backdrop-blur-lg sticky top-0 z-50">
     <div class="container mx-auto flex justify-between items-center">
       <a href="#" class="text-2xl font-bold font-['Space_Grotesk']">Innovation Corner</a>
-      <!-- Hamburger Menu for Mobile -->
       <button id="mobile-menu-button" class="md:hidden text-purple-400 focus:outline-none">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
         </svg>
       </button>
-      <!-- Desktop Menu -->
       <div id="navbar-menu" class="hidden md:flex space-x-6">
         <a href="home.html" class="hover:text-purple-400 transition-colors">Home</a>
         <a href="blogs.html" class="hover:text-purple-400 transition-colors">Blogs</a>
-        <a href="about.html" class="hover:text-purple-400 transition-colors">About</a>
-        <a href="contact.html" class="text-purple-400 hover:text-purple-400 transition-colors">Contact</a>
+        <a href="about.html" class="text-purple-400 hover:text-purple-400 transition-colors">About</a>
+        <a href="contact.html" class="hover:text-purple-400 transition-colors">Contact</a>
       </div>
     </div>
   </nav>
 
   <!-- Full-Page Mobile Menu -->
   <div id="mobile-menu">
-    <!-- Close Button (X Icon) -->
     <div id="close-mobile-menu">
       <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
       </svg>
     </div>
-    <!-- Navigation Links -->
     <div>
       <a href="home.html" class="text-purple-400 hover:text-purple-500 transition-colors">Home</a>
       <a href="blogs.html" class="text-purple-400 hover:text-purple-500 transition-colors">Blogs</a>
@@ -151,68 +146,43 @@ h2, p {
     </div>
   </div>
 
-  <script> 
-    // Mobile Menu Toggle
-    const mobileMenuButton = document.getElementById("mobile-menu-button");
-    const mobileMenu = document.getElementById("mobile-menu");
-    const closeMobileMenuButton = document.getElementById("close-mobile-menu");
+ 
+<section class="container mx-auto py-12 md:py-16 px-4">
+  <div class="flex flex-col items-center text-center">
+    <h2 class="text-2xl md:text-3xl font-bold font-['Space_Grotesk'] mb-4">Our Story</h2>
+    <p class="text-lg text-gray-300 mb-8">Learn more about our mission.</p>
+    <div class="max-w-5xl">
+      <p class="text-base md:text-xl text-gray-300 centered-text">
+        At Innovation Corner, we are passionate about being your go-to destination for cutting-edge insights on technology, design, and innovation. Our mission is to explore emerging trends, share practical insights, and provide expert opinions that empower you to stay ahead in a rapidly evolving world.<br><br>
 
-    mobileMenuButton.addEventListener("click", () => {
-      mobileMenu.classList.add("active");
-    });
+        In an age where technology and design are in constant flux, we understand the importance of staying informed. Our vision is to create a space where individuals and businesses can come together to explore the latest advancements that are reshaping industries and changing the way we live and work. We aim to be your trusted source for valuable knowledge that helps you navigate the complexities of today's landscape.<br><br>
 
-    closeMobileMenuButton.addEventListener("click", () => {
-      mobileMenu.classList.remove("active");
-    });
+        At Innovation Corner, we dive deep into the technologies and design philosophies that are shaping our future. From artificial intelligence and machine learning to blockchain and virtual reality, we analyze their implications across various sectors. Our articles explore real-world applications and case studies that provide you with a clear understanding of how to leverage these innovations for your benefit.<br><br>
 
-    // Close mobile menu when a link is clicked
-    mobileMenu.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        mobileMenu.classList.remove("active");
-      });
-    });
-  </script>
+        We believe that knowledge should lead to action. That’s why we share practical insights that you can apply in your own projects or businesses. Whether you’re looking to adopt design thinking methodologies, implement agile development practices, or create effective digital marketing strategies, our guides and resources offer actionable steps that make it easy to foster a culture of innovation.<br><br>
 
-  <style> 
-    .form-wrapper {
-      width: 100%;
-      max-width: 500px; /* Set max width for desktop */
-      margin: 0 auto; /* Center the form */
-    }
-  </style>
+        Our journey began with a simple belief: that innovation should be accessible to everyone. We recognized a gap in the market for a reliable resource that bridges the divide between complex technological concepts and everyday applications. With this vision in mind, we set out to create a platform that not only informs but also inspires.<br><br>
 
-  <!-- Contact Section -->
-  <section class="container mx-auto py-12 md:py-12 px-4 flex-grow">
-    <div class="grid grid-cols-1 gap-8">
-      <div id="contact">
-        <h2 class="text-2xl md:text-3xl font-bold font-['Space_Grotesk'] text-center mb-4">Get in Touch</h2> <!-- Centered title -->
-        <p class="text-lg text-gray-300 text-center mb-8">Get in touch with us for inquiries, collaborations, or feedback.</p> <!-- Centered paragraph -->
-        <div class="form-wrapper mx-auto max-w-[500px]"> <!-- Form wrapper -->
-          <form class="glass-card p-6">
-            <div class="mb-6">
-              <label for="name" class="block text-gray-300 mb-2">Name</label>
-              <input type="text" id="name" class="w-full p-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="Your Name">
-            </div>
-            <div class="mb-6">
-              <label for="email" class="block text-gray-300 mb-2">Email</label>
-              <input type="email" id="email" class="w-full p-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="Your Email">
-            </div>
-            <div class="mb-6">
-              <label for="message" class="block text-gray-300 mb-2">Message</label>
-              <textarea id="message" class="w-full p-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600" rows="5" placeholder="Your Message"></textarea>
-            </div>
-            <div class="text-center">
-              <button type="submit" class="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors">Send Message</button>
-            </div>
-          </form>
-        </div> <!-- Close wrapper -->
-        <div class="mt-6 text-center text-gray-300">
-          <p>Our office hours are 7am to 7pm Pacific Time, Mon-Sun.</p>
-          <p>You can also reach us directly at <a href="mailto:innovation@blacnova.net" class="text-purple-400 hover:text-purple-300 hover:underline">innovation@blacnova.net</a>.</p>
-        </div>
-      </div>
+        The founding team of Innovation Corner is comprised of industry experts, seasoned practitioners, and enthusiastic learners. Together, we share a wealth of experience across various fields, from software development and graphic design to marketing and entrepreneurship. This diverse background allows us to approach topics from multiple perspectives, ensuring our content is well-rounded and comprehensive.<br><br>
+
+        We take pride in curating content that resonates with our audience. Our team is committed to producing high-quality articles, tutorials, and guides that cater to both novices and seasoned professionals. Whether you are just starting your journey in technology or are a seasoned expert looking for the latest trends, we strive to provide content that meets your needs.<br><br>
+
+        Community engagement is at the heart of Innovation Corner. We believe that the best ideas emerge through collaboration and conversation. Therefore, we encourage our readers to participate actively by sharing their thoughts, insights, and experiences. Through comments, social media interactions, and community forums, we aim to foster a vibrant ecosystem where ideas can flourish.<br><br>
+
+        We also recognize the importance of continuous learning in a fast-paced world. To support this, we offer webinars, workshops, and online courses that delve deeper into specific topics of interest. These resources are designed to empower you with practical skills and knowledge that you can apply immediately. Our commitment to education extends beyond articles, as we believe that learning should be a dynamic and interactive experience.<br><br>
+
+        Sustainability and ethical considerations are increasingly important in today’s technological landscape. At Innovation Corner, we are committed to exploring how innovation can drive positive change. We are dedicated to highlighting stories of companies and individuals who are leveraging technology for social good, promoting sustainable practices, and prioritizing inclusivity in their innovations.<br><br>
+
+        We believe in the power of storytelling to connect with our audience on a deeper level. Our content often features interviews with industry leaders, innovators, and changemakers who share their journeys and insights. By showcasing their experiences, we hope to inspire others to pursue their passions and make a difference in their communities.<br><br>
+
+        As we look to the future, our goal remains clear: to be at the forefront of the conversation around technology and innovation. We are excited about the possibilities that lie ahead and are committed to exploring new frontiers in the digital landscape. We invite you to join us on this journey, as we uncover the trends, tools, and insights that will shape our world in the years to come.<br><br>
+
+        Thank you for visiting Innovation Corner. We look forward to embarking on this journey of discovery and growth together! Together, let’s unlock the potential of innovation and transform the way we think, create, and connect.
+      </p>
     </div>
-  </section>
+  </div>
+</section>
+
 <section class="py-8 bg-gray-900">
   <div class="container mx-auto text-center">
     <h2 class="text-xl font-bold font-['Space_Grotesk'] mb-4">Follow Us on Social Media</h2>
@@ -236,46 +206,48 @@ h2, p {
     </div>
   </div>
 </section>
-<!-- Footer -->
- <footer class="bg-gray-800 bg-opacity-50 backdrop-filter backdrop-blur-lg py-8 mt-auto">
-  <div class="container mx-auto px-6">
-    <div class="flex flex-col items-center">
-      <!-- Logo/Link row -->
-      <div class="flex space-x-6 mb-6">
-        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 text-lg font-light">Privacy Policy</a>
-        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 text-lg font-light">Terms of Use</a>
-      </div>
-     <div class="flex justify-center">
-  <!-- Copyright text with subtle gradient -->
-<p class="text-gray-500 text-lg font-light tracking-wide mb-1.5">
-    © 2025 <span class="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent font-medium">Innovation Corner</span>. All rights reserved.
-</p>
 
-</div>
-      <!-- Additional info -->
-      <p class="text-gray-600 text-lg mt-2 font-light">
-        Designed in New Mexico. Crafted with passion worldwide.
-      </p>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 bg-opacity-50 backdrop-filter backdrop-blur-lg py-8 mt-auto">
+    <div class="container mx-auto text-center">
+      <p class="text-gray-300">© 2025 <span class="highlight">Innovation Corner</span>. All rights reserved.</p>
     </div>
-  </div>
-</footer>
-  
+  </footer>
 
+  <!-- JavaScript for Cookie Popup, FAQ Toggle, and Unsplash API -->
   <script>
     // Cookie Popup
     document.addEventListener("DOMContentLoaded", () => {
       const cookiePopup = document.getElementById("cookie-popup");
       const acceptCookiesButton = document.getElementById("accept-cookies");
 
-      // Check if the user has already accepted cookies
       if (!localStorage.getItem("cookiesAccepted")) {
         cookiePopup.style.display = "block";
       }
 
-      // Handle cookie acceptance
       acceptCookiesButton.addEventListener("click", () => {
         localStorage.setItem("cookiesAccepted", "true");
         cookiePopup.style.display = "none";
+      });
+    });
+
+    // Mobile Menu Toggle
+    const mobileMenuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const closeMobileMenuButton = document.getElementById("close-mobile-menu");
+
+    mobileMenuButton.addEventListener("click", () => {
+      mobileMenu.classList.add("active");
+    });
+
+    closeMobileMenuButton.addEventListener("click", () => {
+      mobileMenu.classList.remove("active");
+    });
+
+    mobileMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.remove("active");
       });
     });
   </script>
